@@ -6,9 +6,17 @@
 
 {% block content %}
 
-<div class = "login">
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
+</style>
 
-    <h1>Login</h1>
+
+<div class = "Login">
+    <nav class="navbar" style="background-color: #e3f2fd;">
+        <h1 style = "font-family: Rancho;font-size:50px" >Greetings! Please Login...</h1>
+        <h1 style = "font-family: Rancho;font-size:30px" >Nama: Joshua Mihai Daniel Nadeak</h1>
+    </nav>
 
     <form method="POST" action="">
         {% csrf_token %}
@@ -25,7 +33,7 @@
 
             <tr>
                 <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
+                <td><input class="btn btn-warning" type="submit" value="Login"></td>
             </tr>
         </table>
     </form>
@@ -40,6 +48,5 @@
         
     Belum mempunyai akun? <a href="{% url 'wishlist:register' %}">Buat Akun</a>
 
-</div>
-
+    </div>
 {% endblock content %}

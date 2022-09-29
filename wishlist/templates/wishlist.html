@@ -1,25 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>Nama: </h5>
-<b>{{nama}}</b>
 
-<table>
-    <tr>
-    <th>Nama Barang</th>
-    <th>Harga Barang</th>
-    <th>Deskripsi</th>
-    </tr>
-    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-    {% for barang in list_barang %}
-        <tr>
-            <th>{{barang.nama_barang}}</th>
-            <th>{{barang.harga_barang}}</th>
-            <th>{{barang.deskripsi}}</th>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
+</style>
+
+<nav class="navbar" style="background-color: #e3f2fd;">
+        <div class="title-container">
+            <h1 class="title" style = "font-family: Rancho;font-size:50px">My Own Wishlist with CSS ~ Joshua Mihai Daniel Nadeak</h1>
+        </div>
+    
+        <button type="button" class="btn btn-warning">
+            <a href="{% url 'wishlist:logout' %}" style="text-decoration:none; color: #FFFFFF">Logout</a>
+        </button>
+  </nav>
+
+  <br></br>
+    <table>
+        <tr class="table-header-row">
+        <th class="table-header-cell">Nama Barang</th>
+        <th class="table-header-cell">Harga Barang</th>
+        <th class="table-header-cell">Deskripsi</th>
         </tr>
-{% endfor %}
-</table>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+        
+        {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+
+        {% for barang in list_barang %}
+            <tr class="table-row">
+                <th class="table-cell">{{barang.nama_barang}}</th>
+                <th class="table-cell">{{barang.harga_barang}}</th>
+                <th class="table-cell">{{barang.deskripsi}}</th>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+    <br></br>
+
+    <h5 style = "font-family: monospace;font-size:20px">Sesi terakhir login: {{ last_login }}</h5>
 
 {% endblock content %}

@@ -1,0 +1,29 @@
+body {
+    /* background-color: black; */
+    padding: 0 1rem 1rem 1rem;
+    background-color: linear-gradient(#e66465, #9198e5);
+  }
+  
+  .title-container {
+    display: inline-block;
+  }
+  
+  .title {
+    background: linear-gradient(90deg, rgb(247, 96, 96) 0%, rgb(183, 0, 255) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    padding-right: 0;
+  }
+  
+
+  
+  .table-cell {
+    background-color: rgb(252, 225, 225);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
+  
+  .table-header-cell {
+    background-color: gold;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
