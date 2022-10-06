@@ -23,6 +23,31 @@ def show_wishlist(request):
     }
     return render(request, "wishlist.html", context)
 
+@login_required(login_url='/wishlist/login/')
+def show_wishlist_ajax(request):
+    data_barang_wishlist = BarangWishlist.objects.all()
+    context = {
+        'list_barang': data_barang_wishlist,
+        'nama': 'Joshua Mihai Daniel Nadeak',
+        'last_login': request.COOKIES['last_login'],
+    }
+    return render(request, "wishlist_ajax.html", context)
+
+@login_required(login_url='/wishlist/login/')
+def add_wishlist_ajax(request):
+    if request.method == "POST":
+        nama_wishlist = request.POST.get("nama_wishlist")
+        harga_wishlist = request.POST.get("harga_wishlist")
+        deskripsi_wishlist = request.POST.get("deskripsi_wishlist")
+        BarangWishlist.objects.create(
+            nama_barang = nama_wishlist, 
+            harga_barang = harga_wishlist, 
+            deskripsi = deskripsi_wishlist,
+        )
+        return HttpResponse()
+    else:
+        return redirect("wishlist:show_wishlist")
+
 def show_xml(request):
     data_barang_wishlist = BarangWishlist.objects.all()
     return HttpResponse(serializers.serialize("xml", data_barang_wishlist), content_type="application/xml")
